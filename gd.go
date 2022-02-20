@@ -647,7 +647,8 @@ func (p *Image) StringFT(fg Color, fontname string, ptsize, angle float64, x, y 
 }
 
 func pointsTogdPoints(points []Point) C.gdPointPtr {
-	const maxlen = 1 << 30 // ought to be enough for anybody
+	//const maxlen = 1 << 30 // ought to be enough for anybody
+	const maxlen = 1 << 24 // 30 waqs causing problems on the pi
 	alen := len(points)
 
 	if alen > maxlen {
